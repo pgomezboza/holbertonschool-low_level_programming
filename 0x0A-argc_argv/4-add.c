@@ -18,9 +18,9 @@ int main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		for (count = 1; argv[cout]; x++)
+		for (count = 1; argv[count]; count++)
 		{
-			num = strtol(argv[count], &count, 10);
+			num = strtol(argv[count], &ch, 10);
 			if (!*ch)
 			{
 				sum += num;
