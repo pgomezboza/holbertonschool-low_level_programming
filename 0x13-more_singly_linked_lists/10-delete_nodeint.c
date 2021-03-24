@@ -6,36 +6,36 @@
  * @head: double pointer to the first node in the list.
  * @index: index of the node to delete.
  *
- * Return: 1 if it succeeded, -1 if it failed.
+ * Return: 1 (Success), or -1 (Fail).
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	unsigned int i;
-	listint_t *tmp1, *tmp2;
+	listint_t *tmp1 = *head;
+	listint_t *tmp2 = NULL;
+	unsigned int i = 0;
 
-	if (head == NULL || *head == NULL)
+	if (*head == NULL)
 		return (-1);
-	if (index == 0)
 
+	if (index == 0)
 	{
-		tmp1 = (*head)->next;
-		free(*head);
-		*head = tmp1;
+		*head = (*head)->next;
+		free(tmp1);
 		return (1);
 	}
 
-	tmp2 = *head;
-
-	for (i = 0; i < index - 1; i++)
+	while (i < index - 1)
 	{
-		if (tmp2->next == NULL)
+		if (!tmp1 || !(tmp1->next))
 			return (-1);
-		tmp2 = tmp2->next;
+		tmp1 = tmp1->next;
+		i++;
 	}
 
-	tmp1 = tmp2->next;
-	tmp2->next = tmp1->next;
 
+	tmp2 = tmp1->next;
+	tmp1->next = tmp2->next;
 	free(tmp2);
+
 	return (1);
 }
