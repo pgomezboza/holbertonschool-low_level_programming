@@ -10,7 +10,7 @@ void check97(int argc)
 {
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, 
+		dprintf(STDERR_FILENO,
 			"Usage: cp file_from file_to\n");
 
 		exit(97);
@@ -30,7 +30,7 @@ void check98(ssize_t check, char *file, int fd_from, int fd_to)
 {
 	if (check == -1)
 	{
-		dprintf(STDERR_FILENO, 
+		dprintf(STDERR_FILENO,
 			"Error: Can't read from file %s\n", file);
 
 		if (fd_from != -1)
@@ -46,8 +46,8 @@ void check98(ssize_t check, char *file, int fd_from, int fd_to)
  * check99 - checks
  * @check: checks if true of false
  * @file: file
- * @fd_from: file descriptor 
- * @fd_to: file descriptor 
+ * @fd_from: file descriptor
+ * @fd_to: file descriptor
  *
  * Return: void
  */
@@ -55,7 +55,7 @@ void check99(ssize_t check, char *file, int fd_from, int fd_to)
 {
 	if (check == -1)
 	{
-		dprintf(STDERR_FILENO, 
+		dprintf(STDERR_FILENO,
 			"Error: Can't write to %s\n", file);
 
 		if (fd_from != -1)
@@ -78,7 +78,7 @@ void check100(int check, int fd)
 {
 	if (check == -1)
 	{
-		dprintf(STDERR_FILENO, 
+		dprintf(STDERR_FILENO,
 			"Error: Can't close fd %d\n", fd);
 
 		exit(100);
@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
 
 	close_to = close(fd_to);
 	close_from = close(fd_from);
-	
+
 	check100(close_to, fd_to);
 	check100(close_from, fd_from);
 
