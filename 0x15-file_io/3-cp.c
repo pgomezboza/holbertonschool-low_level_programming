@@ -1,4 +1,4 @@
-i#include "holberton.h"
+#include "holberton.h"
 
 /**
  * check97 - checks97
@@ -81,4 +81,4 @@ int main(int argc, char *argv[])
 	}
 
 	return (0);
-
+}
