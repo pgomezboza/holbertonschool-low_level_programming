@@ -1,4 +1,19 @@
-#include "holberton.h"
+i#include "holberton.h"
+
+/**
+ * check97 - checks97
+ * @argc: number of arguments.
+ *
+ * Return: void
+ */
+void check97(int argc)
+{
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+}
 
 /**
  * main - copies the content of a file to another file.
@@ -13,20 +28,13 @@ int main(int argc, char *argv[])
 	int from_count = 1024;
 	char buffer[1024];
 
-	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO,
-			"Usage: cp file_from file_to\n");
-
-		exit(97);
-	}
+	check97(argc);
 
 	from = open(argv[1], O_RDONLY);
 	if (from == 1)
 	{
 		dprintf(STDERR_FILENO,
 			"Error: Can't read from file %s\n", argv[1]);
-
 		exit(98);
 	}
 
@@ -36,7 +44,6 @@ int main(int argc, char *argv[])
 	{
 		dprintf(STDERR_FILENO,
 			"Error: Can't write to %s\n", argv[2]);
-
 		exit(99);
 	}
 
@@ -48,7 +55,6 @@ int main(int argc, char *argv[])
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
-
 			exit(98);
 		}
 
@@ -58,7 +64,6 @@ int main(int argc, char *argv[])
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
-
 			exit(99);
 		}
 	}
@@ -76,4 +81,4 @@ int main(int argc, char *argv[])
 	}
 
 	return (0);
-}
+
